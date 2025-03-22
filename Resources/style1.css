@@ -5,7 +5,7 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    color: black;
+    color: #20321E;
 }
 
 /* Header Styles */
@@ -85,8 +85,7 @@ body {
 /* Container */
 .container {
     margin: 2rem auto;
-    width: 90%;
-    max-width: 1200px;
+    width: 95%;
 }
 
 /* Input */
@@ -112,7 +111,7 @@ input {
 
 /* Scroll Buttons */
 .scroll-btn {
-    background-color: #20321e !important; /* Green color */
+    background-color: #20321E !important; /* Green color */
     color: white;
     border: none;
     padding: 10px 15px;
@@ -127,7 +126,7 @@ input {
 
 /* Disabled Button */
 .scroll-btn:disabled {
-    background-color: #20321e !important; /* Keep green even when disabled */
+    background-color: #20321E !important; /* Keep green even when disabled */
     cursor: not-allowed;
     opacity: 1;
 }
@@ -151,7 +150,7 @@ input {
     overflow: hidden; /* Hide scrollbar */
     white-space: nowrap;
     scroll-behavior: smooth;
-    width: calc(330px * 3); /* Show 3 items */
+    width: calc(330px * 4); /* Show 3 items */
     padding: 10px 0;
 }
 
@@ -162,7 +161,7 @@ input {
 
 /* Resource Cards */
 .resource-card {
-    background: #20321E;
+    background: #466245;
     padding: 15px;
     width: 280px;
     border-radius: 8px;
@@ -178,6 +177,7 @@ input {
 .resource-card:hover {
     transform: scale(1.05);
 }
+/* Style for article images */
 
 .resource-card h3 {
     color: white;
@@ -190,10 +190,10 @@ input {
 
 .resource-card a {
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
     text-decoration: none;
     color: white;
-    background: #466245;
+    background: #20321E;
     padding: 8px 12px;
     border-radius: 5px;
 }
