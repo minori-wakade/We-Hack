@@ -144,19 +144,46 @@ input {
     background-color: #466245 !important; /* Darker green on hover */
 }
 
-/* Scroll Container - Shows only 3 items */
+/* Hide scrollbar */
 .scroll-container {
     display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
     overflow: hidden; /* Hide scrollbar */
     white-space: nowrap;
     scroll-behavior: smooth;
-    width: calc(330px * 4); /* Show 3 items */
-    padding: 10px 0;
+    width: 100%; /* Make it responsive */
 }
 
-/* Hide scrollbar */
 .scroll-container::-webkit-scrollbar {
     display: none;
+}
+
+@media (max-width: 1024px) {
+    .scroll-container {
+        width: calc(330px * 3); /* Show only 3 items */
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-container {
+        width: calc(330px * 2); /* Show only 2 items */
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-container {
+        width: calc(330px * 1); /* Show only 1 item */
+        overflow-x: scroll; /* Enable scrolling */
+    }
+}
+@media screen and (max-width: 768px) {
+    .scroll-btn {
+        display: none; /* Hide buttons on small screens */
+    }
+
+    .scroll-container {
+        overflow-x: scroll; /* Enable manual scrolling */
+    }
 }
 
 /* Resource Cards */
