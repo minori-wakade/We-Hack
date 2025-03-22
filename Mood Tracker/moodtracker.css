@@ -1,8 +1,7 @@
-body {
-    font-family: Arial, sans-serif;
-    background: white;
-    height: 100vh;
+* {
+    padding: 0;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Navbar */
@@ -82,235 +81,173 @@ body {
     } 
 }
 
-
-
-h1 {
-    font-size: 1.5em;
-    color: white;
-    /* color: white; */
-    margin: 0;
-}
-
-.outer-container{
+.container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    justify-content: space-around;
+    margin-top: 30px;
 }
 
 .calendar-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #466245;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 600px;
+    width: 700px;
 }
 
-#main-content{
-    opacity: 1;
-}
-
-.header {
+.traverse-buttons {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 100%;
+    margin-bottom: 10px;
 }
 
-.nav-button {
+.traverse-buttons button {
     background: none;
-    color: white;
     border: none;
-    padding: 10px 15px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: background 0.3s;
+    font-size: 1.2rem;
+}
+#month-display{
+    font-size: 20px;
 }
 
-.nav-button:hover {
-    background: #20321e;
-    color: white;
+.day-display {
+    display: grid;
+    grid-template-columns: repeat(7, 100px);
+    text-align: center;
+    gap: 5px;
+    margin-bottom: 5px;
 }
 
-#calendar {
-    width: 80%;
+.calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
+    gap: 5px;
     margin-top: 20px;
 }
 
-
 .day {
-    padding: 20px;
-    background-color: none;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-    position: relative;
-    font-size: 18px;
-    width: 30px;
-    transition: transform 0.2s;
-}
-
-.day:hover {
-    transform: scale(1.05);
-}
-
-.prev-month, .next-month {
-    color: #DEE2DC;
-    opacity: 0.5;
-}
-
-.day.happy { background-color:#20321e; color: white}
-.day.sad { background-color: #20321e; color: white}
-.day.angry { background-color: #20321e; color: white}
-.day.neutral { background-color: #20321e; color: white}
-.day.excited { background-color:#20321e; color: white}
-.day.bored { background-color: #20321e; color: white}
-.day.surprised { background-color: #20321e; color: white}
-
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background: white;
-    padding: 20px;
-    width: 800px;
-    margin: 100px auto;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.emoji-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 15px;
-    justify-content: center;
-}
-
-.emoji {
-    font-size: 50px;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    background: #f8f7ff;
-    border: none;
-    padding: 10px;
-    transition: transform 0.2s ease-in-out;
-    border: 2px solid black;
-}
-
-.emoji span {
-    display: block;
-    margin-top: 5px;
-    font-size: 14px;
-    color: black;
-}
-
-.emoji:hover {
-    transform: scale(1.2);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.emoji.selected {
-    background-color:#20321e;
-    border:#20321e;
-    box-shadow: 0px 0px 8px #20321e;
-    span{
-        color: white;
-    }
-}
-
-textarea {
-    width: 90%;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 14px;
-    border-radius: 6px;
-    border: 1px solid #20321e;
+    width: 100px;
     height: 100px;
+    text-align: center;
+    cursor: pointer;
 }
 
-.save-button, .delete-button {
-    padding: 8px 16px;
-    background-color:#20321e;
+.mood-tracker {
+    width: 500px;
+}
+
+.mood-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+}
+
+.mood-form input, .mood-form select, .mood-form textarea {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #466245;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* .day.mood-day {
+    font-size: 24px;
+} */
+
+.notes-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.note-item {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    background: white;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.note-item p {
+    margin: 5px 0;
+}
+
+.note-item button {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#delete-mood-btn,
+#delete-all-notes-btn,#save-mood {
+    margin-top: 10px;
+    background-color:#466245;
     color: white;
     border: none;
-    border-radius: 6px;
+    padding: 8px 12px;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s;
-    width: 100%;
 }
 
-.save-button:hover, .delete-button:hover {
-    background-color:#DEE2DC;
-    color: black;
-    border: 2px solid black;
+#delete-mood-btn:hover,
+#delete-all-notes-btn:hover,#save-mood:hover {
+    background-color: white;
+    color:#466245;
+    border: 2px solid #20321e;
 }
 
-.delete-button {
-    background-color: #20321e;
+#remove-btn-text{
+    color:#20321e;
+    padding: 3px;
+    border-radius: 2px;
 }
 
-.delete-button:hover {
-    background-color: #DEE2DC;
+#remove-btn-text:hover{
+    background-color:#20321e;
+    color: white;
 }
-
 
 @media (max-width: 768px){
-    #calendar{
-        grid-template-columns: repeat(5,1fr);
-        gap: 7px;
+    .container {
+        display: flex;
+        flex-direction: column;
+        margin: 30px;
     }
 
-    .modal-content{
-        width: 300px;
+    .calendar-container {
+        width: 350px;
     }
 
-    .emoji{
-        font-size: 40px;
-        width: 90px;
-        height: 90px;
+    .day-display {
+        display: grid;
+        grid-template-columns: repeat(7, 50px);
+        text-align: center;
+        gap: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .day {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        cursor: pointer;
     }
 
-    .emoji-container{
-        gap: 15px;
+    .mood-tracker {
+        width: 400px;
     }
-
-    .emoji span{
-        margin-top: 1.5px;
-        font-size: 12px;
-    }
-
-    .calendar-container{
-        padding: 10px;
-    }
-
+    
     
 }

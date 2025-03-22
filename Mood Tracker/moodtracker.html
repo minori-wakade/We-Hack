@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood Tracker</title>
-    <link rel="stylesheet" href="moodtracker.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Allison&family=Anek+Devanagari:wght@100..800&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-    </style>
+    <link rel="stylesheet" href="./moodtracker.css">
+    <script src="https://kit.fontawesome.com/c557b3f1c5.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -22,67 +20,59 @@
           
         </ul>
     </nav>
-    <div class="outer-container">
-        <div class="calendar-container" id="main-content">
-            <div class="header">
-                <button id="prevMonth" class="nav-button">←</button>
-                <h1 id="monthYear"></h1>
-                <button id="nextMonth" class="nav-button">→</button>
+    <div class="container">
+        <!-- Calendar Section -->
+        <div class="calendar-container">
+            <div class="traverse-buttons">
+                <button id="prev-btn"><i class="fa-solid fa-arrow-left"></i></button>
+                <span id="month-display">March, 2025</span>
+                <button id="next-btn"><i class="fa-solid fa-arrow-right-long"></i></button>
             </div>
-    
-            <div id="calendar" class="calendar">
-                    <div>Mon</div>
-                    <div>Tues</div>
-                    <div>Wed</div>
-                    <div>Thurs</div>
-                    <div>Fri</div>
-                    <div>Sat</div>
-                    <div>Sun</div>
+            <div class="day-display">
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+                <div>Sun</div>
             </div>
+            <hr>
+            <div class="calendar"></div>
+        </div>
+
+        <!-- Mood Tracking Section -->
+        <div class="mood-tracker">
+            <h2>Track Your Mood</h2>
+            <div class="notes-container">
+                <h3>Saved Notes</h3>
+                <div id="notes-list"><p>Select a day to see notes.</p></div>
+                <button id="delete-all-notes-btn" onclick="deleteAllNotes()" style="display: none;">Delete All Notes</button>
+            </div>
+            
+            <form class="mood-form">
+                <label for="selected-date">Selected Date:</label>
+                <input type="text" id="selected-date" readonly>
+                
+                <label for="mood">Select Mood:</label>
+                <select id="mood">
+                    <option value="😊">Happy</option>
+                    <option value="😔">Sad</option>
+                    <option value="😐">Neutral</option>
+                    <option value="😠">Angry</option>
+                    <option value="😌">Calm</option>
+                    <option value="😴">Tired</option>
+                </select>
+
+                <label for="note">Add a Note:</label>
+                <textarea id="note" placeholder="Write something about your day..."></textarea>
+
+                <button id="save-mood" type="submit">Save Mood</button>
+                <button id="delete-mood-btn" onclick="deleteMood()" style="display: none;">Delete Mood</button>
+            </form>
         </div>
     </div>
 
-    <!-- Mood Modal -->
-    <div id="moodModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="selectedDate"></h2>
-            <div class="emoji-container">
-                <button class="emoji" data-mood="happy">
-                    😊
-                    <span>Happy</span>
-                </button>
-                <button class="emoji" data-mood="sad">
-                    😢
-                    <span>Sad</span>
-                </button>
-                <button class="emoji" data-mood="angry">
-                    😡
-                    <span>Angry</span>
-                </button>
-                <button class="emoji" data-mood="neutral">
-                    😐
-                    <span>Neutral</span>
-                </button>
-                <button class="emoji" data-mood="excited">
-                    😁
-                    <span>Excited</span>
-                </button>
-                <button class="emoji" data-mood="bored">
-                    😴
-                    <span>Bored</span>
-                </button>
-                <button class="emoji" data-mood="surprised">
-                    😲
-                    <span>Surprised</span>
-                </button>
-            </div>
-            <textarea id="note" placeholder="Add a note (optional)"></textarea>
-            <button id="saveMood" class="save-button">Save Mood</button>
-            <button id="deleteMood" class="delete-button">Delete Mood</button>
-        </div>
-    </div>
-
-    <script src="moodtracker.js"></script>
+    <script src="./moodtracker.js"></script>
 </body>
 </html>
