@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindEd Journal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./journal.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">MindEd</div>
+        <button class="nav-toggle">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="main.html">Calendar</a></li>
+            <li><a href="journal.html" class="active">Journal</a></li>
+            <li><a href="index.html">Blogs</a></li>
+            <li><a href="AbtUs.html">About Us</a></li>
+        </ul>
+    </nav>
+    
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Your Daily Journal</h1>
+            <p id="quote" class="quote-text"></p>
+        </div>
+    </div>
+    
+    <div class="page-container">
+        <div class="left-column">
+            <div class="tag-section">
+                <h2>Tags</h2>
+                <div id="tag-list" class="tag-cloud"></div>
+            </div>
+            
+            <div class="journal-form">
+                <h2>Today's Entry</h2>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="journal-entry">How was your day?</label>
+                        <textarea id="journal-entry" placeholder="Write about your experiences today..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Tags</label>
+                        <input type="text" id="tags" placeholder="e.g., happy, productive">
+                    </div>
+                    <div class="form-group">
+                        <label for="gratitude">Gratitude</label>
+                        <textarea id="gratitude" placeholder="What are you grateful for today?"></textarea>
+                    </div>
+                    <div class="button-container">
+                        <button id="save-entry">Save Entry</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-column">
+            <div id="entries-section">
+                <div class="entries-header">
+                    <h2>Your Journal Entries</h2>
+                    <div class="search-container">
+                        <input type="text" id="search" placeholder="Search entries...">
+                    </div>
+                </div>
+                <ul id="entries-list"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">MindEd</div>
+            <p>&copy; 2025 MindEd - Your Mental Wellness Journey</p>
+        </div>
+    </footer>
+    
+    <script src="./journal.js"></script>
+</body>
+</html>
