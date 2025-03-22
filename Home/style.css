@@ -1,0 +1,190 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #2e7d32;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #466245;
+    padding: 15px 30px;
+}
+
+.nav-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    font-family: "Dancing Script", cursive;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.nav-links a:hover {
+    color: #ffeb3b;
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 80px 40px;
+    text-align: left;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 50%;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #466245;
+    text-align: start;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    color: #466245;
+    margin-bottom: 15px;
+    text-align: start;
+}
+
+.hero-image img {
+    max-width: 100%;
+    width: 450px;
+}
+
+.button {
+    text-decoration: none;
+    background-color: #466245;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+    display: inline-block;
+    margin-top: 30px; /* Moves the button downward */
+}
+
+.button:hover {
+    background-color: #20321E;
+    transform: scale(1.05);
+}
+
+/* Features Section */
+.features-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.features-title {
+    font-size: 2.5rem;
+    color: #2d4a34;
+    margin-bottom: 20px;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.feature {
+    flex: 1;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 15px;
+    border-radius: 10px;
+}
+
+.feature img {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+    font-size: 20px;
+    color: #2d4a34;
+}
+
+.feature p {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+}
+
+.feature:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .hero-content, .hero-image {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        max-width: 80%;
+        margin-bottom: 30px;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: #20321E;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: auto;
+    position: sticky;
+    bottom: 0px;
+}
