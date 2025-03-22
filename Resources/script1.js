@@ -51,3 +51,24 @@ function searchResources() {
         }
     });
 }
+function adjustVisibleCards() {
+    let screenWidth = window.innerWidth;
+    let container = document.querySelectorAll(".scroll-container");
+
+    container.forEach(cont => {
+        if (screenWidth > 1024) {
+            cont.style.width = "calc(330px * 4)"; // Show 4 cards
+        } else if (screenWidth > 768) {
+            cont.style.width = "calc(330px * 3)"; // Show 3 cards
+        } else if (screenWidth > 480) {
+            cont.style.width = "calc(330px * 2)"; // Show 2 cards
+        } else {
+            cont.style.width = "calc(330px * 1)"; // Show 1 card
+            cont.style.overflowX = "scroll"; // Enable horizontal scrolling
+        }
+    });
+}
+
+// Run function on load and resize
+window.addEventListener("load", adjustVisibleCards);
+window.addEventListener("resize", adjustVisibleCards);
