@@ -112,6 +112,8 @@
     padding: 50px 5%;
     text-align: center;
     border-top: #DDD8CA solid 2px;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
   }
   
   .hero-content {
@@ -466,6 +468,7 @@
   @media (max-width: 768px) {
     .nav-toggle {
         display: block;
+        z-index: 100;
     }
   
     .nav-links {

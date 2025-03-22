@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EDDBC3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.image{
+    width: 200px;
+}
+
+.chat-container {
+    width: 50vw;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px;
+}
+
+@media (max-width: 768px) {
+    .chat-container{
+        width: 350px;
+    }
+}
+.chat-header {
+    background: #466245;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.chat-box {
+    height: 400px;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ddd8ca;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+.back {
+    background-color: #466245;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 1rem;
+}
+.back a{
+    text-decoration: none;
+    color: white;
+}
+button {
+    background-color: #466245;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: #20321E;
+}
+
+.user-message, .bot-message {
+    max-width: 80%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.user-message {
+    align-self: flex-end;
+    background: #466245;
+    color: white;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background: #ddd8ca;;
+    color: black;
+}
+
+.typing {
+    display: inline-block;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.typing::after {
+    content: " ";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    animation: typing-animation 1.2s infinite;
+}
+
+@keyframes typing-animation {
+    0% { content: "."; }
+    33% { content: ".."; }
+    66% { content: "..."; }
+}

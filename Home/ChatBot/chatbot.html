@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Chatbot</title>
+    <link rel="stylesheet" href="./chatbot.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+</head>
+<body>
+    <div class="image">
+        <img src="./image copy.png" alt="">
+    </div>
+    <div class="chat-container">
+        <div class="chat-header">
+            <button class="back"><a href="../Home.html"><i class="fa-solid fa-angle-left"></i></a></button>
+            🧠 Mental Health Support
+        </div>
+        <div class="chat-box" id="chat-box">
+            <p class="bot-message">Hello! How can I help you today? 😊</p>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="./chatbot.js"></script>
+</body>
+</html>

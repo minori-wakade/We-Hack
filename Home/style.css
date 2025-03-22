@@ -141,7 +141,10 @@ body {
     display: inline-block;
     margin-top: 30px; /* Moves the button downward */
 }
-
+.button i{
+    padding-left: 10px;
+    font-size: 1.5rem;
+}
 .button:hover {
     background-color: #20321E;
     transform: scale(1.05);
