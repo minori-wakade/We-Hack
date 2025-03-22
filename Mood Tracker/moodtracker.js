@@ -1,121 +1,3 @@
-const calendar = document.getElementById("calendar");
-const monthYearDisplay = document.getElementById("monthYear");
-const moodModal = document.getElementById("moodModal");
-const selectedDateDisplay = document.getElementById("selectedDate");
-const moodButtons = document.querySelectorAll(".emoji");
-const noteInput = document.getElementById("note");
-const saveMoodButton = document.getElementById("saveMood");
-const deleteMoodButton = document.getElementById("deleteMood");
-const closeButton = document.querySelector(".close");
-let selectedDate = null;
-let currentMonth = new Date().getMonth();
-let currentYear = new Date().getFullYear();
-
-
-function loadCalendar(month, year) {
-    calendar.innerHTML = "";
-    monthYearDisplay.textContent = `${new Date(year, month).toLocaleString("default", { month: "long" })} ${year}`;
-
-    const firstDay = new Date(year, month, 1).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const prevDays = new Date(year, month, 0).getDate();
-
-    for (let i = firstDay - 1; i >= 0; i--) {
-        const prevDiv = document.createElement("div");
-        prevDiv.className = "day prev-month";
-        prevDiv.textContent = prevDays - i;
-        calendar.appendChild(prevDiv);
-    }
-
-    for (let day = 1; day <= daysInMonth; day++) {
-        const dayDiv = document.createElement("div");
-        dayDiv.className = "day";
-        dayDiv.textContent = day;
-
-        const savedMood = localStorage.getItem(`${year}-${month + 1}-${day}`);
-        if (savedMood) {
-            const { mood } = JSON.parse(savedMood);
-            dayDiv.classList.add(mood);
-        }
-
-        dayDiv.onclick = () => openMoodModal(year, month, day);
-        calendar.appendChild(dayDiv);
-    }
-
-    const nextDays = 7 - (calendar.childElementCount % 7);
-    for (let i = 1; i <= nextDays; i++) {
-        const nextDiv = document.createElement("div");
-        nextDiv.className = "day next-month";
-        nextDiv.textContent = i;
-        calendar.appendChild(nextDiv);
-    }
-}
-
-function openMoodModal(year, month, day) {
-    selectedDate = new Date(year, month, day);
-    selectedDateDisplay.textContent = selectedDate.toDateString();
-    noteInput.value = "";
-
-    // Clear all previously selected emojis
-    moodButtons.forEach(button => button.classList.remove("selected"));
-
-    // Retrieve the saved mood and note for the selected date
-    const savedMood = localStorage.getItem(`${year}-${month + 1}-${day}`);
-    if (savedMood) {
-        const { mood, note } = JSON.parse(savedMood);
-        // Highlight the emoji corresponding to the saved mood
-        const moodButton = document.querySelector(`.emoji[data-mood="${mood}"]`);
-        if (moodButton) {
-            moodButton.classList.add("selected");
-        }
-        noteInput.value = note; // Set the note in the input field
-    }
-
-    // Display the modal
-    moodModal.style.display = "block";
-}
-
-
-saveMoodButton.onclick = () => {
-    const selectedMoodButton = document.querySelector(".emoji.selected");
-    if (selectedMoodButton) {
-        const mood = selectedMoodButton.getAttribute("data-mood");
-        const note = noteInput.value;
-        localStorage.setItem(`${selectedDate.getFullYear()}-${selectedDate.getMonth() + 1}-${selectedDate.getDate()}`, JSON.stringify({ mood, note }));
-        loadCalendar(currentMonth, currentYear);
-        moodModal.style.display = "none";
-    }
-};
-
-deleteMoodButton.onclick = () => {
-    localStorage.removeItem(`${selectedDate.getFullYear()}-${selectedDate.getMonth() + 1}-${selectedDate.getDate()}`);
-    loadCalendar(currentMonth, currentYear);
-    moodModal.style.display = "none";
-};
-
-closeButton.onclick = () => moodModal.style.display = "none";
-
-document.getElementById("prevMonth").onclick = () => {
-    currentMonth = (currentMonth - 1 + 12) % 12;
-    if (currentMonth === 11) currentYear--;
-    loadCalendar(currentMonth, currentYear);
-};
-
-document.getElementById("nextMonth").onclick = () => {
-    currentMonth = (currentMonth + 1) % 12;
-    if (currentMonth === 0) currentYear++;
-    loadCalendar(currentMonth, currentYear);
-};
-
-document.querySelectorAll(".emoji").forEach(btn => {
-    btn.onclick = () => {
-        moodButtons.forEach(b => b.classList.remove("selected"));
-        btn.classList.add("selected");
-    };
-});
-
-loadCalendar(currentMonth, currentYear);
-
 const navToggle = document.getElementById("navToggle");
 const navLinks = document.getElementById("navLinks");
 
@@ -123,4 +5,156 @@ navToggle.addEventListener("click", () => {
     navLinks.classList.toggle("show");
 });
 
+const monthDisplay = document.getElementById("month-display");
+const calendar = document.querySelector(".calendar");
+const moodForm = document.querySelector(".mood-form");
+const selectedDateInput = document.getElementById("selected-date");
+const moodSelect = document.getElementById("mood");
+const noteInput = document.getElementById("note");
+const notesList = document.getElementById("notes-list");
+const deleteMoodBtn = document.getElementById("delete-mood-btn");
+const deleteAllNotesBtn = document.getElementById("delete-all-notes-btn");
 
+let date = new Date();
+let month = date.getMonth();
+let year = date.getFullYear();
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+function updateCalendar() {
+    calendar.innerHTML = "";
+    monthDisplay.textContent = `${months[month]}, ${year}`;
+
+    let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 1; i <= daysInMonth; i++) {
+        let dayDiv = document.createElement("div");
+        dayDiv.classList.add("day");
+        dayDiv.textContent = i;
+        dayDiv.addEventListener("click", () => selectDate(i));
+
+        let savedMood = localStorage.getItem(`mood-${year}-${month}-${i}`);
+        if (savedMood) {
+            dayDiv.classList.add("mood-day");
+            dayDiv.innerHTML = `<p>${i}</p><p>${savedMood}</p>`;
+        }
+
+        calendar.appendChild(dayDiv);
+    }
+}
+
+function selectDate(day) {
+    selectedDateInput.value = `${day} ${months[month]}, ${year}`;
+    displayNotes(day);
+    updateDeleteMoodButton(day);
+}
+
+moodForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (!selectedDateInput.value) {
+        alert("Please select a date first!");
+        return;
+    }
+
+    let day = selectedDateInput.value.split(" ")[0];
+    let dateKey = `mood-${year}-${month}-${day}`;
+    let noteKey = `notes-${year}-${month}-${day}`;
+
+    localStorage.setItem(dateKey, moodSelect.value);
+
+    let notes = JSON.parse(localStorage.getItem(noteKey)) || [];
+    if (noteInput.value.trim()) {
+        notes.push({ text: noteInput.value.trim(), date: `${day} ${months[month]}, ${year}` });
+        localStorage.setItem(noteKey, JSON.stringify(notes));
+    }
+
+    updateCalendar();
+    displayNotes(day);
+    moodForm.reset();
+});
+
+function displayNotes(day) {
+    notesList.innerHTML = "";
+
+    let noteKey = `notes-${year}-${month}-${day}`;
+    let notes = JSON.parse(localStorage.getItem(noteKey)) || [];
+
+    if (notes.length === 0) {
+        notesList.innerHTML = "<p>No notes for this day.</p>";
+        deleteAllNotesBtn.style.display = "none";
+        return;
+    }
+
+    deleteAllNotesBtn.style.display = "block";
+
+    notes.forEach((note, index) => {
+        let noteItem = document.createElement("div");
+        noteItem.classList.add("note-item");
+        noteItem.innerHTML = `
+            <p><strong>${note.date}</strong></p>
+            <p>"${note.text}"</p>
+            <button onclick="deleteNote(${day}, ${index})"><span id="remove-btn-text">Remove</span></button>
+        `;
+        notesList.appendChild(noteItem);
+    });
+}
+
+function deleteNote(day, index) {
+    let noteKey = `notes-${year}-${month}-${day}`;
+    let notes = JSON.parse(localStorage.getItem(noteKey)) || [];
+
+    notes.splice(index, 1);
+    localStorage.setItem(noteKey, JSON.stringify(notes));
+
+    displayNotes(day);
+}
+
+function deleteAllNotes() {
+    if (!selectedDateInput.value) return;
+
+    let day = selectedDateInput.value.split(" ")[0];
+    let noteKey = `notes-${year}-${month}-${day}`;
+    localStorage.removeItem(noteKey);
+    
+    displayNotes(day);
+}
+
+function deleteMood() {
+    if (!selectedDateInput.value) return;
+
+    let day = selectedDateInput.value.split(" ")[0];
+    let dateKey = `mood-${year}-${month}-${day}`;
+    localStorage.removeItem(dateKey);
+
+    updateCalendar();
+    updateDeleteMoodButton(day);
+}
+
+function updateDeleteMoodButton(day) {
+    let dateKey = `mood-${year}-${month}-${day}`;
+    if (localStorage.getItem(dateKey)) {
+        deleteMoodBtn.style.display = "block";
+    } else {
+        deleteMoodBtn.style.display = "none";
+    }
+}
+
+document.getElementById("prev-btn").addEventListener("click", () => {
+    month = month === 0 ? 11 : month - 1;
+    updateCalendar();
+    clearNotesList();
+});
+
+document.getElementById("next-btn").addEventListener("click", () => {
+    month = month === 11 ? 0 : month + 1;
+    updateCalendar();
+    clearNotesList();
+});
+
+function clearNotesList() {
+    notesList.innerHTML = "<p>Select a day to see notes.</p>";
+    deleteAllNotesBtn.style.display = "none";
+    deleteMoodBtn.style.display = "none";
+}
+
+updateCalendar();
