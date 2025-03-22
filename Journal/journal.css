@@ -38,62 +38,74 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--primary-color);
-    padding: 12px 5%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Brand Name */
-  .nav-brand {
+    background-color: #466245;
+    padding: 10px 20px;
+    margin-bottom: 2.5rem;
+}
+
+.nav-brand {
     font-size: 2rem;
     font-weight: bold;
-    color: var(--secondary-color);
+    color: white;
     font-family: "Dancing Script", cursive;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Navigation Links */
-  .nav-links {
+}
+
+.nav-links {
     display: flex;
     gap: 20px;
     list-style: none;
     margin: 0;
     padding: 0;
-    margin-left: auto;
-  }
-  
-  .nav-links a {
-    font-size: 1rem;
+    z-index: 2;
+}
+
+.nav-links a {
+    font-size: 1.2rem;
     text-decoration: none;
-    color: var(--secondary-color);
+    color: white;
     font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-  }
-  
-  .nav-links a:hover, .nav-links a.active {
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
-  }
-  
-  .nav-links a.active {
-    font-weight: 600;
-  }
-  
-  /* Toggle Button */
-  .nav-toggle {
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #20321e;
+}
+
+.nav-toggle {
     display: none;
-    font-size: 1.5rem;
+    font-size: 24px;
     background: none;
     border: none;
-    color: var(--secondary-color);
+    color: #ddd8ca;
     cursor: pointer;
-  }
-  
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #ddd8ca;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    #navLinks a {
+        color: black;
+    }
+}
   /* Hero Section with Quote */
   .hero-section {
     background: linear-gradient(to bottom, var(--primary-color), var(--primary-dark));
@@ -412,26 +424,15 @@
   }
   
   /* Footer */
-  footer {
-    background-color: var(--primary-dark);
-    color: var(--secondary-color);
+  .footer {
+    background-color: #20321E;
+    color: white;
+    padding: 15px;
     text-align: center;
-    padding: 25px 0;
     margin-top: auto;
-  }
-  
-  .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .footer-brand {
-    font-family: "Dancing Script", cursive;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-  }
-  
+    position: relative;
+    bottom: 0px;
+}
   /* Responsive Styles */
   @media (max-width: 1200px) {
     .page-container {

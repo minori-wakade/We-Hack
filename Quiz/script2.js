@@ -5,7 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButton = document.getElementById("next");
     const submitButton = document.getElementById("submit");
     const resultContainer = document.getElementById("result");
+    const navToggle = document.getElementById("navToggle");
+const navLinks = document.getElementById("navLinks");
 
+navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+});
     let currentQuestionIndex = 0;
     let answers = [];
     let correctAnswers = [];

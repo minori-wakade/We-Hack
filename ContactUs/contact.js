@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-const navToggle = document.querySelector(".nav-toggle");
-const navLinks = document.querySelector(".nav-links");
+const navToggle = document.getElementById("navToggle");
+const navLinks = document.getElementById("navLinks");
 
-navToggle.onclick = () => navLinks.classList.toggle("show");
+navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+});

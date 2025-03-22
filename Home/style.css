@@ -15,7 +15,8 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #466245;
-    padding: 15px 30px;
+    padding: 10px 20px;
+    margin-bottom: 2.5rem;
 }
 
 .nav-brand {
@@ -27,10 +28,11 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     list-style: none;
     margin: 0;
     padding: 0;
+    z-index: 2;
 }
 
 .nav-links a {
@@ -38,12 +40,20 @@ body {
     text-decoration: none;
     color: white;
     font-weight: 500;
-    transition: color 0.3s, transform 0.2s;
+    transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #ffeb3b;
-    transform: scale(1.1);
+    color: #20321e;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -68,11 +78,10 @@ body {
         display: block;
     }
 
-    #navLinks a{
+    #navLinks a {
         color: black;
-    } 
+    }
 }
-
 /* Hero and Features Wrapper */
 .hero-features-wrapper {
     display: flex;
@@ -234,6 +243,6 @@ body {
     padding: 15px;
     text-align: center;
     margin-top: auto;
-    position: sticky;
+    position: relative;
     bottom: 0px;
 }

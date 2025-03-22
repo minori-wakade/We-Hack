@@ -19,21 +19,12 @@ document.getElementById('quote').textContent = `"${quotes[Math.floor(Math.random
 const saveEntryButton = document.getElementById('save-entry');
 const entriesList = document.getElementById('entries-list');
 const searchInput = document.getElementById('search');
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.getElementById('navLinks');
-
 // Toggle mobile navigation
-navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-});
+const navToggle = document.getElementById("navToggle");
+const navLinks = document.getElementById("navLinks");
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (navLinks.classList.contains('show') && 
-        !e.target.closest('.nav-links') && 
-        !e.target.closest('.nav-toggle')) {
-        navLinks.classList.remove('show');
-    }
+navToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
 });
 
 // Load saved entries from local storage or initialize an empty array

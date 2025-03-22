@@ -228,7 +228,6 @@ button:hover {
 
 /* Navbar */
 .navbar {
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -245,7 +244,6 @@ button:hover {
 }
 
 .nav-links {
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     display: flex;
     gap: 20px;
     list-style: none;
@@ -275,7 +273,6 @@ button:hover {
     cursor: pointer;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -298,9 +295,9 @@ button:hover {
         display: block;
     }
 
-    #navLinks a{
+    #navLinks a {
         color: black;
-    } 
+    }
 }
 
 #emergency {
@@ -309,4 +306,13 @@ button:hover {
 .crisis{
     text-decoration: none;
     color: white;
+}
+.footer {
+    background-color: #20321E;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: auto;
+    position: relative;
+    bottom: 0px;
 }
