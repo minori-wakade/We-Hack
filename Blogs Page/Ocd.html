@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Self-Assessment Quiz</title>
+    <style>
+        /* Color Palette */
+        :root {
+            --primary: #466245;
+            --secondary: #ddd8ca;
+            --dark: #20321e;
+        }
+
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: var(--primary);
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* Quiz Container */
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Headings */
+        h2 {
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        /* Questions */
+        .question {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        /* Slider Styling */
+        input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            background: var(--primary);
+            outline: none;
+            border-radius: 5px;
+            transition: 0.2s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: var(--dark);
+        }
+
+        /* Back Button */
+        .back-button {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+        .back-button a{
+            text-decoration: none;
+            color: #20321e;
+        }
+
+        .back-button:hover {
+            background: #c9c4b7;
+        }
+
+        /* Button Container */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        /* Result Text */
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--dark);
+            min-height: 50px; /* Ensures space for displaying the result */
+            padding: 10px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .quiz-container {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.5em;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 10px;
+            }
+            
+            .button-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Obsessive-Compulsive Disorder (OCD) Analysis</h2>
+        
+        <div class="question">
+            <p>1.Do you experience recurring unwanted thoughts (obsessions) that cause anxiety?</p>
+            <input type="range" min="0" max="8" value="4" id="q1">
+        </div>
+        
+        <div class="question">
+            <p>2. Do you feel compelled to perform specific actions (compulsions) to relieve anxiety?</p>
+            <input type="range" min="0" max="8" value="4" id="q2">
+        </div>
+
+        <div class="question">
+            <p>3. Do you spend an excessive amount of time checking things (locks, appliances, etc.)?</p>
+            <input type="range" min="0" max="8" value="4" id="q3">
+        </div>
+
+        <div class="question">
+            <p>4. Do you feel the need to perform routines or rituals in a specific order or repeatedly?</p>
+            <input type="range" min="0" max="8" value="4" id="q4">
+        </div>
+
+        <div class="question">
+            <p>5. Do you fear contamination and wash your hands excessively or avoid certain places?</p>
+            <input type="range" min="0" max="8" value="4" id="q5">
+        </div>
+
+        <div class="button-container">
+            <button class="back-button"><a href="blogs.html">Back</a></button>
+            <button onclick="calculateScore()">Submit</button>
+        </div>
+        
+        <p class="result" id="result"></p>
+    </div>
+
+    <script>
+        function calculateScore() {
+            // Fetching values from the sliders
+            let q1 = Number(document.getElementById("q1").value);
+            let q2 = Number(document.getElementById("q2").value);
+            let q3 = Number(document.getElementById("q3").value);
+            let q4 = Number(document.getElementById("q4").value);
+            let q5 = Number(document.getElementById("q5").value);
+
+            console.log("Q1:", q1, "Q2:", q2, "Q3:", q3, "Q4:", q4, "Q5:", q5); // Debugging
+
+            let totalScore = q1 + q2 + q3 + q4 + q5;
+            let averageScore = totalScore / 5;
+            let resultText = "";
+
+            // Displaying results based on the average score
+            if (averageScore >= 6) {
+                resultText = `<p>Your responses indicate a high level of OCD symptoms. Consider seeking professional help.</p>Score: <p>${averageScore}</p>`;
+            } else if (averageScore >= 3) {
+                resultText = `<p>You show some signs of OCD. It might be helpful to talk to someone or practice self-care.</p>Score: <p>${averageScore}</p>`;
+            } else {
+                resultText = `<p>Your responses suggest a low level of OCD symptoms. Keep maintaining a healthy routine!</p>Score: <p>${averageScore}</p>`;
+            }
+
+            console.log("Result:", resultText); // Debugging
+
+            document.getElementById("result").innerHTML = resultText;
+        }
+        
+    </script>
+</body>
+</html>
