@@ -1,0 +1,221 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #20321E;
+}
+
+/* Header Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #466245;
+    padding: 10px 20px;
+    margin-bottom: 2.5rem;
+}
+
+.nav-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    font-family: "Dancing Script", cursive;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+}
+
+.nav-links a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #20321e;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #ddd8ca;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #ddd8ca;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    #navLinks a {
+        color: black;
+    }
+}
+
+/* Container */
+.container {
+    margin: 2rem auto;
+    width: 95%;
+}
+
+/* Input */
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: 1px solid #20321E;
+    color: #20321E;
+    background-color: white;
+}
+
+/* Scroll Wrapper */
+.scroll-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+    background-color: #20321E !important; /* Green color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 5px;
+    position: absolute;
+    z-index: 2;
+    transition: background 0.3s;
+}
+
+/* Disabled Button */
+.scroll-btn:disabled {
+    background-color: #20321E !important; /* Keep green even when disabled */
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+/* Positioning */
+.scroll-btn.left {
+    left: -10px;
+}
+
+.scroll-btn.right {
+    right: -10px;
+}
+
+.scroll-btn:hover {
+    background-color: #466245 !important; /* Darker green on hover */
+}
+
+/* Scroll Container - Shows only 3 items */
+.scroll-container {
+    display: flex;
+    overflow: hidden; /* Hide scrollbar */
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    width: calc(330px * 4); /* Show 3 items */
+    padding: 10px 0;
+}
+
+/* Hide scrollbar */
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Resource Cards */
+.resource-card {
+    background: #466245;
+    padding: 15px;
+    width: 280px;
+    border-radius: 8px;
+    text-align: left;
+    color: white;
+    display: inline-block;
+    margin: 10px;
+    white-space: normal;
+    flex: 0 0 auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.resource-card:hover {
+    transform: scale(1.05);
+}
+/* Style for article images */
+
+.resource-card h3 {
+    color: white;
+}
+
+.resource-card p {
+    color: #D3D3D3;
+    font-size: 14px;
+}
+
+.resource-card a {
+    display: inline-block;
+    margin-top: 0.75rem;
+    text-decoration: none;
+    color: white;
+    background: #20321E;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.resource-card a:hover {
+    background: #355030;
+}
+
+/* Iframe Styles */
+iframe {
+    border-radius: 8px;
+    width: 100%;
+    height: 180px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .scroll-btn {
+        display: none; /* Hide buttons on small screens */
+    }
+
+    .scroll-container {
+        overflow-x: scroll;
+    }
+}

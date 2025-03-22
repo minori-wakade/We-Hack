@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Resources</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- Header Section for Website Name and Logo -->
+    
+    <nav class="navbar">
+        <div class="nav-brand">MindEd</div>
+        <button class="nav-toggle" id="navToggle">&#9776;</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="main.html">Calender</a></li>
+            <li><a href="journal.html">Journal</a></li>
+            <li><a href="index.html">Blogs</a></li>
+            <li><a href="AbtUs.html">AboutUs</a></li>
+          
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Mental Health Resources</h1>
+
+        <!-- Search Bar -->
+        <input type="text" id="searchInput" placeholder="Search resources..." onkeyup="searchResources()">
+
+        <!-- Articles Section with Arrows -->
+        <h1>Articles</h1>
+        <div class="scroll-wrapper">
+            <button class="scroll-btn left" onclick="scrollLeft('articles')"><i class="fa-solid fa-angle-left"></i></button>
+            <div class="scroll-container" id="articles">
+                <div class="resource-card">
+                    <h3>Mental Wellness</h3>
+                    <p>5 steps to mental wellbeing</p>
+                    <a href="https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/#:~:text=Some%20of%20the%20things%20you,they%20have%20done%20for%20you" target="_blank">Read More</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Understanding Anxiety</h3>
+                    <p>Learn about symptoms and treatments.</p>
+                    <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders" target="_blank">Read More</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Stress Management</h3>
+                    <p>10 stress busters</p>
+                    <a href="https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/" target="_blank">Read More</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Exercise for depression</h3>
+                    <p>Find the cause of your stress.</p>
+                    <a href="https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/exercise-for-depression/" target="_blank">Read More</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Sleep and Mental Health</h3>
+                    <p>Sleep's impact on mental health.</p>
+                    <a href="https://www.sleepfoundation.org/mental-health" target="_blank">Read More</a>
+                </div>
+            </div>
+            <button class="scroll-btn right" onclick="scrollRight('articles')"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+
+        <!-- Videos Section with Arrows -->
+        <h1>Videos</h1>
+        <div class="scroll-wrapper">
+            <button class="scroll-btn left" onclick="scrollLeft('videos')"><i class="fa-solid fa-angle-left"></i></button>
+            <div class="scroll-container" id="videos">
+                <div class="resource-card">
+                    <h3>Mental Health Awareness</h3>
+                    <iframe src="https://www.youtube.com/embed/y-ACcDIGi-c" allowfullscreen></iframe>
+                </div>
+                <div class="resource-card">
+                    <h3>Managing Anxiety</h3>
+                    <iframe src="https://www.youtube.com/embed/ZidGozDhOjg" allowfullscreen></iframe>
+                </div>
+                <div class="resource-card">
+                    <h3>How to Deal with Depression</h3>
+                    <iframe src="https://www.youtube.com/embed/8Su5VtKeXU8" allowfullscreen></iframe>
+                </div>
+                <div class="resource-card">
+                    <h3>Meditation for Stress Relief</h3>
+                    <iframe src="https://www.youtube.com/embed/oVzTnS_IONU" allowfullscreen></iframe>
+                </div>
+                <div class="resource-card">
+                    <h3>Overcoming Negativity</h3>
+                    <iframe src="https://www.youtube.com/embed/nsOKrCVs6WM" allowfullscreen></iframe>
+                </div>
+            </div>
+            <button class="scroll-btn right" onclick="scrollRight('videos')"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>
