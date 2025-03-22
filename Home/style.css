@@ -47,13 +47,48 @@ body {
     transform: scale(1.1);
 }
 
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    #navLinks a{
+        color: black;
+    } 
+}
+
+/* Hero and Features Wrapper */
+.hero-features-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Hero Section */
 .hero {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 80px 40px;
-    text-align: left;
+    padding: 40px 40px;
+    margin-top: -50px;
 }
 
 .hero-content {
@@ -65,18 +100,26 @@ body {
     font-size: 1.2rem;
     color: #466245;
     text-align: start;
+    text-align: center;
 }
 
 .hero-content h1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
     color: #466245;
     margin-bottom: 15px;
-    text-align: start;
+    text-align: center;
 }
 
 .hero-image img {
     max-width: 100%;
     width: 450px;
+    margin-top: -30px;
+}
+/* Hide Hero Image on Small Screens */
+@media (max-width: 1100px) {
+    .hero-image {
+        display: none;
+    }
 }
 
 .button {
@@ -99,7 +142,6 @@ body {
 /* Features Section */
 .features-section {
     text-align: center;
-    padding: 50px 20px;
 }
 
 .features-title {
@@ -135,12 +177,12 @@ body {
 }
 
 .feature h3 {
-    font-size: 20px;
+    font-size: 1rem;
     color: #2d4a34;
 }
 
 .feature p {
-    font-size: 16px;
+    font-size: .9rem;
     color: #555;
     text-align: center;
 }
@@ -150,7 +192,11 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+    /* .hero-features-wrapper {
+        flex-direction: column;
+    } */
+
     .hero {
         flex-direction: column;
         text-align: center;
@@ -175,6 +221,10 @@ body {
     .feature {
         max-width: 80%;
         margin-bottom: 30px;
+    }
+    .feature img{
+        height: 150px;
+        width: 150px;
     }
 }
 
