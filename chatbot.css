@@ -24,6 +24,9 @@ body {
     .chat-container{
         width: 350px;
     }
+    .image {
+        display: none;
+    }
 }
 .chat-header {
     background: #466245;
