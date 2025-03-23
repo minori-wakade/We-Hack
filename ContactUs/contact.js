@@ -24,20 +24,3 @@ const navLinks = document.getElementById("navLinks");
 navToggle.addEventListener("click", () => {
     navLinks.classList.toggle("show");
 });
-(function() {
-    emailjs.init("qeE9QIMiu9sPb7Rsw"); // Replace with your EmailJS public key
-})();
-
-function sendEmail(event) {
-    event.preventDefault();
-
-    emailjs.send("SERVICE_AM66NNR", "TEMPLATE_PLFS07Q", {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        message: document.getElementById("message").value
-    }).then(function(response) {
-        alert("Email sent successfully!");
-    }, function(error) {
-        alert("Failed to send email: " + JSON.stringify(error));
-    });
-}
