@@ -4,11 +4,11 @@
 MindED is a mental health support platform designed to improve emergency medical response efficiency by providing accessible mental health resources, self-assessment tools, and direct communication options.
 
 ## Features
-- ** Meditation Resources**: Curated YouTube videos for relaxation and mindfulness.  
-- ** Mood Tracker**: Calendar-based mood tracking with note-adding functionality.  
-- ** Journaling**: Users can log daily entries with tags for better reflection.  
-- ** Blogs & Articles**: Educational content on various mental health issues.  
-- ** Mental Health Quizzes**: Self-assessment tests for:
+- **Meditation Resources**: Curated YouTube videos for relaxation and mindfulness.  
+- **Mood Tracker**: Calendar-based mood tracking with note-adding functionality.  
+- **Journaling**: Users can log daily entries with tags for better reflection.  
+- **Blogs & Articles**: Educational content on various mental health issues.  
+- **Mental Health Quizzes**: Self-assessment tests for:
   - ADHD  
   - OCD  
   - Social Anxiety  
