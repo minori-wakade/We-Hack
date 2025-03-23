@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
+    
+    <link rel="stylesheet" href="contact.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="contact.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-brand">MindEd</div>
         <button class="nav-toggle" id="navToggle">&#9776;</button>
         <ul class="nav-links" id="navLinks">
-            <li><a href="home.html">Home</a></li>
+            <li><a href="../Home/Home.html">Home</a></li>
             <li><a href="../Mood Tracker/moodtracker.html">Mood Tracker</a></li>
             <li><a href="../Journal/journal.html">Journal</a></li>
             <li><a href="../Quiz/Quiz.html">Quiz</a></li>
@@ -24,7 +25,6 @@
             <li><a href="../ContactUs/contact.html">Contact Us</a></li>
         </ul>
     </nav>
-
 <div id="contactPage">
     <div class="container">
         <div class="space-y-6">
@@ -83,6 +83,7 @@
             
                         <button type="submit">Submit</button>
                     </form>
+                    <p id="response-message"></p>
                 </div>
             </div>
             
@@ -171,6 +172,10 @@
 <footer class="footer">
     &copy; 2025 MindEd. All rights reserved.
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  
+</script>
     <script src="contact.js"></script>
 </body>
 </html>
