@@ -1,7 +1,7 @@
 let responses = {};
 
 async function loadResponses() {
-    const response = await fetch('responses.json');
+    const response = await fetch("responses.json");
     responses = await response.json();
 }
 
