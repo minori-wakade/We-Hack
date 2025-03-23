@@ -25,7 +25,7 @@ MindED is a mental health support platform designed to improve emergency medical
 ## Development & Hackathon Participation
 - **Hackathon**: Built during *WeHack* hackathon.  
 - **Team Name**: Hacktastic (4 members).  
-- **Problem Statement**: *Emergency medical response efficiency.*  
+- **Problem Statement**: *Mental Health Support*  
 
 ## Installation & Usage
 1. Clone the repository:  
